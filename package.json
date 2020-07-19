@@ -1,6 +1,6 @@
 {
   "name": "element-ui-sticky-table",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simulate sticky behavior for element-ui el-table",
   "main": "index.js",
   "module": "dist/element-ui-sticky-table.es.prod.js",
