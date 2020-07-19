@@ -24,8 +24,7 @@
   ],
   "scripts": {
     "build": "rollup --config",
-    "lint": "prettier . --write",
-    "test": "jest ."
+    "lint": "prettier . --write"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^8.4.0",
