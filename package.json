@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "Simulate sticky behavior for element-ui el-table",
   "main": "index.js",
-  "module": "dist/sticky-table.esm.min.js",
-  "unpkg": "dist/sticky-table.iife.min.js",
-  "jsdelivr": "dist/sticky-table.iife.js",
+  "module": "dist/element-ui-sticky-table.es.prod.js",
+  "unpkg": "dist/element-ui-sticky-table.iife.prod.js",
+  "jsdelivr": "dist/element-ui-sticky-table.iife.prod.js",
   "author": "Ernest Chang <iattempt.net@gmail.com>",
   "license": "MIT",
   "repository": {
