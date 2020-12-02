@@ -38,6 +38,7 @@ export default {
       tableHeader: undefined,
       tableHeaderFixed: undefined,
       tableHeaderFixedRight: undefined,
+      requestId: null,
     };
   },
   computed: {
@@ -198,15 +199,18 @@ export default {
       window.dispatchEvent(new Event("sticky-table:expand"));
     },
     adjust() {
-      const top =
-        this.$refs.table.$el.getBoundingClientRect().top - this.offsetTop;
-      const finalTop = top >= 0 ? "0" : Math.abs(top) + "px";
+      cancelAnimationFrame(this.requestId);
+      this.requestId = requestAnimationFrame(() => {
+        const top =
+          this.$refs.table.$el.getBoundingClientRect().top - this.offsetTop;
+        const finalTop = top >= 0 ? "0" : Math.abs(top) + "px";
 
-      [this.tableHeader, this.tableHeaderFixed, this.tableHeaderFixedRight]
-        .filter((el) => el !== undefined)
-        .forEach((el) => {
-          el.style.top = finalTop;
-        });
+        [this.tableHeader, this.tableHeaderFixed, this.tableHeaderFixedRight]
+          .filter((el) => el !== undefined)
+          .forEach((el) => {
+            el.style.top = finalTop;
+          });
+      });
     },
   },
 };
