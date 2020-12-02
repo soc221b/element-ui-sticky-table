@@ -15,15 +15,15 @@ const configs = [];
 formats.forEach((format) => {
   const config = {
     input,
-    external: ['element-ui'],
+    external: ["element-ui"],
     output: {
       globals: {
-        'element-ui': 'ELEMENT',
+        "element-ui": "ELEMENT",
       },
       format,
-      name: 'StickyTable',
+      name: "StickyTable",
       extend: true,
-      exports: 'auto',
+      exports: "auto",
     },
   };
 

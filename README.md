@@ -7,13 +7,13 @@ yarn add element-ui-sticky-table
 ```
 
 ```js
-import Vue from 'vue'
-import StickyTable from 'element-ui-sticky-table'
+import Vue from "vue";
+import StickyTable from "element-ui-sticky-table";
 
 // global registration
-Vue.component('sticky-table', StickyTable)
+Vue.component("sticky-table", StickyTable);
 // or directly override el-table (StickyTable is a superset of ElTable)
-Vue.component('el-table', StickyTable)
+Vue.component("el-table", StickyTable);
 ```
 
 ## Usage
