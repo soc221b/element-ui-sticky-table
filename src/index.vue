@@ -28,6 +28,10 @@ export default {
       default: false,
       type: Boolean,
     },
+    stickyOffsetTop: {
+      default: 0,
+      type: Number,
+    },
   },
 
   components: {
@@ -62,40 +66,6 @@ export default {
         }
       } catch (error) {}
       return nodes;
-    },
-
-    offsetTop() {
-      let offsetTop = 0;
-      let elTableCount = 0;
-
-      try {
-        let parentNode = this.tableEl.parentElement;
-        while (parentNode !== null) {
-          if (parentNode.classList.contains("el-table")) {
-            for (const el of [...this.tableEl.parentElement.children]) {
-              if (el.classList.contains("el-table")) break;
-              const computedHeight = getComputedStyle(el).height;
-              if (computedHeight.endsWith("px"))
-                offsetTop -= parseFloat(computedHeight);
-            }
-
-            // nested table
-            const computedHeight = getComputedStyle(
-              [...parentNode.children].find((el) =>
-                el.classList.contains("el-table__header-wrapper")
-              )
-            ).height;
-            if (computedHeight.endsWith("px")) {
-              offsetTop += parseFloat(computedHeight);
-            }
-          } else if (parentNode.classList.contains("el-dialog__wrapper")) {
-            break;
-          }
-          parentNode = parentNode.parentElement;
-        }
-      } catch (error) {}
-
-      return offsetTop;
     },
   },
   watch: {
@@ -196,7 +166,8 @@ export default {
       cancelAnimationFrame(this.requestId);
       this.requestId = requestAnimationFrame(async () => {
         const top =
-          this.$refs.table.$el.getBoundingClientRect().top - this.offsetTop;
+          this.$refs.table.$el.getBoundingClientRect().top -
+          this.stickyOffsetTop;
         const finalTop = top >= 0 ? "0" : Math.abs(top) + "px";
 
         [this.tableHeader, this.tableHeaderFixed, this.tableHeaderFixedRight]

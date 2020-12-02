@@ -63,3 +63,9 @@ cd examples
 yarn install
 yarn dev
 ```
+
+### API
+
+`sticky: boolean = false`: Whether the table should be sticky.
+
+`sticky-offset-top: number = 0`: apply offset top, this would be useful when you have fixed element to be offset from.
