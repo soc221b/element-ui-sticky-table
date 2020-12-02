@@ -14,6 +14,10 @@
 <script>
 import { Table as ElTable } from "element-ui";
 
+const wait = (ms) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
 export default {
   name: "sticky-table",
 
@@ -157,16 +161,6 @@ export default {
       this.tableHeaderFixedRight.style.position = "relative";
       // fixed table zIndex = 3
       this.tableHeaderFixedRight.style.zIndex = "4";
-
-      const parentHeight = getComputedStyle(
-        this.tableHeaderFixedRight.parentElement
-      ).width;
-      const childHeight = getComputedStyle(
-        [...this.tableHeaderFixedRight.children].find((el) =>
-          el.classList.contains("el-table__header")
-        )
-      ).width;
-      this.tableHeaderFixedRight.style.left = `calc(-${childHeight} + ${parentHeight})`;
     },
     data: {
       immediate: true,
@@ -200,7 +194,7 @@ export default {
     },
     adjust() {
       cancelAnimationFrame(this.requestId);
-      this.requestId = requestAnimationFrame(() => {
+      this.requestId = requestAnimationFrame(async () => {
         const top =
           this.$refs.table.$el.getBoundingClientRect().top - this.offsetTop;
         const finalTop = top >= 0 ? "0" : Math.abs(top) + "px";
@@ -210,6 +204,20 @@ export default {
           .forEach((el) => {
             el.style.top = finalTop;
           });
+
+        // TODO: figure out the problem
+        // try to fix wrong offset is calculated on first render
+        await wait(166);
+        if (this.tableHeaderFixedRight === undefined) return;
+        const parentWidth = getComputedStyle(
+          this.tableHeaderFixedRight.parentElement
+        ).width;
+        const childWidth = getComputedStyle(
+          [...this.tableHeaderFixedRight.children].find((el) =>
+            el.classList.contains("el-table__header")
+          )
+        ).width;
+        this.tableHeaderFixedRight.style.left = `calc(-${childWidth} + ${parentWidth})`;
       });
     },
   },
