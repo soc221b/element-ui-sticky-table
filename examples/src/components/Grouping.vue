@@ -1,5 +1,5 @@
 <template>
-  <el-table sticky :data="tableData" style="width: 100%;">
+  <el-table sticky :data="tableData" style="width: 100%">
     <el-table-column prop="date" label="Date" width="150"> </el-table-column>
     <el-table-column label="Delivery Info">
       <el-table-column prop="name" label="Name" width="120"> </el-table-column>

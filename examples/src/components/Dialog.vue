@@ -1,6 +1,8 @@
 <template>
   <div>
-    <el-button type="text" @click="dialogTableVisible = true">open a Table nested Dialog</el-button>
+    <el-button type="text" @click="dialogTableVisible = true"
+      >open a Table nested Dialog</el-button
+    >
 
     <el-dialog title="Shipping address" :visible.sync="dialogTableVisible">
       <slot></slot>
@@ -10,7 +12,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       dialogTableVisible: false,
     };

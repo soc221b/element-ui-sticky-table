@@ -11,6 +11,9 @@
     <h2>Grouping table head</h2>
     <grouping-example></grouping-example>
 
+    <h2>Expandable table</h2>
+    <expandable-example></expandable-example>
+
     <h2>A table nested dialog</h2>
     <dialog-example>
       <h2>Basic table</h2>
@@ -21,23 +24,28 @@
 
       <h2>Grouping table head</h2>
       <grouping-example></grouping-example>
+
+      <h2>Expandable table</h2>
+      <expandable-example></expandable-example>
     </dialog-example>
   </div>
 </template>
 
 <script>
-import { default as BasicExample } from './components/Basic.vue'
-import { default as DialogExample } from './components/Dialog.vue'
-import { default as FixedExample } from './components/Fixed.vue'
-import { default as GroupingExample } from './components/Grouping.vue'
+import { default as BasicExample } from "./components/Basic.vue";
+import { default as DialogExample } from "./components/Dialog.vue";
+import { default as FixedExample } from "./components/Fixed.vue";
+import { default as GroupingExample } from "./components/Grouping.vue";
+import { default as ExpandableExample } from "./components/Expandable.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     BasicExample,
     DialogExample,
     FixedExample,
     GroupingExample,
-  }
-}
+    ExpandableExample,
+  },
+};
 </script>
