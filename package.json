@@ -1,6 +1,6 @@
 {
   "name": "element-ui-sticky-table",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Sticky for element-ui table",
   "main": "index.js",
   "module": "dist/index.es.prod.js",
