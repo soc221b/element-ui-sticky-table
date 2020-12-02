@@ -40,7 +40,6 @@ export default {
 
   data() {
     return {
-      isStickyTableUpdating: false,
       oldScrollableParentNodes: [],
       tableEl: undefined,
       tableHeader: undefined,
