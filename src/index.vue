@@ -79,7 +79,6 @@ export default {
               offsetTop += parseFloat(computedHeight);
             }
           } else if (parentNode.classList.contains("el-dialog__wrapper")) {
-            offsetTop = 0;
             break;
           }
           parentNode = parentNode.parentElement;
