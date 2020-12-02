@@ -167,6 +167,12 @@ export default {
       ).width;
       this.tableHeaderFixedRight.style.left = `calc(-${childHeight} + ${parentHeight})`;
     },
+    data: {
+      immediate: true,
+      handler() {
+        this.adjust();
+      },
+    },
   },
   async mounted() {
     if (this.sticky === false) return;
