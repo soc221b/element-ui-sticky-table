@@ -1,5 +1,10 @@
 <template>
-  <el-table v-bind="$attrs" v-on="$listeners" ref="table">
+  <el-table
+    v-bind="$attrs"
+    v-on="$listeners"
+    ref="table"
+    @expand-change="handleExpand"
+  >
     <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope">
       <slot :name="slot" v-bind="scope" />
     </template>
@@ -172,6 +177,7 @@ export default {
     this.tableEl = this.$refs.table.$el;
 
     window.addEventListener("resize", this.adjust);
+    window.addEventListener("sticky-table:expand", this.adjust);
   },
   beforeDestroy() {
     this.scrollableParentNodes.forEach((node) => {
@@ -179,8 +185,12 @@ export default {
       node.removeEventListener("wheel", this.adjust);
     });
     window.removeEventListener("resize", this.adjust);
+    window.removeEventListener("sticky-table:expand", this.adjust);
   },
   methods: {
+    handleExpand() {
+      window.dispatchEvent(new Event("sticky-table:expand"));
+    },
     adjust() {
       const top =
         this.$refs.table.$el.getBoundingClientRect().top - this.offsetTop;
