@@ -16,6 +16,11 @@ formats.forEach((format) => {
   const config = {
     input,
     external: ["element-ui"],
+    plugins: [
+      vue(),
+      resolve(),
+      globals(),
+    ],
     output: {
       globals: {
         "element-ui": "ELEMENT",
@@ -30,12 +35,10 @@ formats.forEach((format) => {
   configs.push({
     ...config,
     plugins: [
-      vue(),
       replace({
         __DEV__: true,
       }),
-      resolve(),
-      globals(),
+      ...config.plugins,
     ],
     output: {
       ...config.output,
@@ -46,12 +49,10 @@ formats.forEach((format) => {
   configs.push({
     ...config,
     plugins: [
-      vue(),
       replace({
         __DEV__: false,
       }),
-      resolve(),
-      globals(),
+      ...config.plugins,
       terser(),
     ],
     output: {
