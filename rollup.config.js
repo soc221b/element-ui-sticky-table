@@ -1,9 +1,6 @@
 import rm from "rimraf";
 import path from "path";
 import { terser } from "rollup-plugin-terser";
-import replace from "@rollup/plugin-replace";
-import resolve from "@rollup/plugin-node-resolve";
-import globals from "rollup-plugin-node-globals";
 import vue from "rollup-plugin-vue";
 
 rm.sync(path.resolve("dist/**/*"));
@@ -18,8 +15,6 @@ formats.forEach((format) => {
     external: ["element-ui"],
     plugins: [
       vue(),
-      resolve(),
-      globals(),
     ],
     output: {
       globals: {
@@ -34,12 +29,6 @@ formats.forEach((format) => {
 
   configs.push({
     ...config,
-    plugins: [
-      replace({
-        __DEV__: true,
-      }),
-      ...config.plugins,
-    ],
     output: {
       ...config.output,
       file: path.resolve(`dist/index.${format}.js`),
@@ -49,9 +38,6 @@ formats.forEach((format) => {
   configs.push({
     ...config,
     plugins: [
-      replace({
-        __DEV__: false,
-      }),
       ...config.plugins,
       terser(),
     ],
