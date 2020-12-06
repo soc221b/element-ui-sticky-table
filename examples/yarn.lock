@@ -1567,8 +1567,10 @@ electron-to-chromium@^1.3.47:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.612.tgz#4a49864b9de694403a69d5a9f439cbceca543e48"
   integrity sha512-CdrdX1B6mQqxfw+51MPWB5qA6TKWjza9f5voBtUlRfEZEwZiFaxJLrhFI8zHE9SBAuGt4h84rQU6Ho9Bauo1LA==
 
-"element-ui-sticky-table@file:..":
-  version "0.0.2"
+element-ui-sticky-table@latest:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/element-ui-sticky-table/-/element-ui-sticky-table-0.3.0.tgz#ad68371ca111d6ead30c0d58902295e6cc76d953"
+  integrity sha512-OgzOy2avZwr7mpUUZ3POFSM1+tXLlRXXTN+JE3hSH++qcOWpkvkj0Nt+rj2KTmdC2R1n8fnJ74bcZbuFOw3l8A==
 
 element-ui@^2.14.1:
   version "2.14.1"
