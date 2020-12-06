@@ -13,9 +13,7 @@ formats.forEach((format) => {
   const config = {
     input,
     external: ["element-ui"],
-    plugins: [
-      vue(),
-    ],
+    plugins: [vue()],
     output: {
       globals: {
         "element-ui": "ELEMENT",
@@ -37,10 +35,7 @@ formats.forEach((format) => {
 
   configs.push({
     ...config,
-    plugins: [
-      ...config.plugins,
-      terser(),
-    ],
+    plugins: [...config.plugins, terser()],
     output: {
       ...config.output,
       file: path.resolve(`dist/index.${format}.prod.js`),
