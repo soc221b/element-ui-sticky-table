@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     scrollableParentNodes() {
-      const nodes = [];
+      const nodes = [document];
       try {
         let parentNode = this.tableEl.parentElement;
         while (parentNode !== null) {
