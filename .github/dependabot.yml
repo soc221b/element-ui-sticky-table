@@ -1,7 +1,8 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-  versioning-strategy: lockfile-only
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: daily
+    versioning-strategy: lockfile-only
+    target-branch: develop
